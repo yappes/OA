@@ -1,0 +1,58 @@
+<div class="modal" ng-controller="KisBpmTaskDispatchPopupCtrl">
+  <div class="modal-dialog modal-wide">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">&times;</button>
+        <h3>{{'PROPERTY.PROPERTY.EDIT.TITLE' | translate:property}}</h3>
+      </div>
+      <div class="modal-body">
+
+        <div class="row row-no-gutter">
+          <table class="table table-striped">
+            <thead>
+              <th width="50">序号</th>
+              <th width="150">事件类型</th>
+              <th width="250">执行任务</th>
+              <th>说明</th>
+              <th width="50">
+                <a class="btn btn-success btn-xs" ng-click="addTaskDispatchValue()">
+                  <i class="glyphicon glyphicon-plus clickable-property"></i>
+                </a>
+              </th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="taskDispatch in taskDispatchs">
+                <td>{{$index + 1}}</td>
+                <td>
+                  <select ng-class="'eventType-' + taskDispatch.$$hashKey" ng-init="initEventTypeSelect(taskDispatch)">
+                    <option value="COMPLETE">完成</option>
+                    <option value="REJECT">驳回</option>
+                    <option value="RECALL">收回</option>
+                  </select>
+                </td>
+                <td>
+                  <select ng-class="'taskSelect-' + taskDispatch.$$hashKey" ng-init="initTaskDispatchSelect(taskDispatch)">
+                    <option></option>
+                  </select>
+                </td>
+                <td>
+                  <textarea ng-model="taskDispatch.comments" style="width: 100%;" rows="2"></textarea>
+                </td>
+                <td>
+                  <a class="btn btn-danger btn-xs" ng-click="removeTaskDispatchValue(taskDispatch)">
+                    <i class="glyphicon glyphicon-minus clickable-property"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button ng-click="close()" class="btn btn-primary" translate>ACTION.CANCEL</button>
+        <button ng-click="save()" class="btn btn-primary" translate>ACTION.SAVE</button>
+      </div>
+    </div>
+  </div>
+</div>

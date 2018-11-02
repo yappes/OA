@@ -1,0 +1,30 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/animate";
+@import "~theme/common/var";
+.pui-dashboard-header {
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  border: 1px solid #E6E6E6;
+  line-height: 1;
+  padding: 33px 0 0 38px;
+  box-sizing: border-box;
+  @include utils-clearfix;
+  &>.pui-dashboard-header__lf {
+    font-family: STHeitiSC-Medium;
+    font-size: $--font-size-large;
+    float: left;
+    color: #FFFFFF;
+    &>:first-child {
+      color: #505050;
+      display: block;
+      margin-bottom: 29px;
+    }
+  }
+  &>.pui-dashboard-header__rt {
+    float: right;
+    margin-right: 64px;
+    height: 100%;
+  }
+}

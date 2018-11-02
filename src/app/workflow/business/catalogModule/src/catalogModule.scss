@@ -1,0 +1,27 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+$--catalog-module-field-height:40px;
+@include b(catalog-module) {
+  margin-top: 15px;
+
+  @include e(title) {
+    font-family: STHeitiSC-Medium;
+    font-size: $--font-size-large;
+    color: $--nav-bgcolor;
+    // background: #E0E5ED;
+    background: #fcfdff;
+    line-height: 43px;
+    height: 43px;
+    padding-left: 20px;
+    border-bottom: solid 1px #f1f1f1;
+  }
+
+  @include e(all-type-wrapper) {
+    padding: 10px;
+    background-color: #fff;
+  }
+  /deep/ .aui-input.is-disabled .aui-input__inner {
+    background-color: $--body-bgcolor;
+  }
+}
+

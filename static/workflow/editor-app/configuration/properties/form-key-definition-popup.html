@@ -1,0 +1,44 @@
+<div class="modal" ng-controller="KisBpmFormKeyDefinitionPopupCtrl">
+  <div class="modal-dialog modal-wide">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">&times;</button>
+        <h2>{{'PROPERTY.PROPERTY.EDIT.TITLE' | translate: property}}</h2>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <p class="col-xs-6">
+            <label>选择模块：</label>
+            <select class="chosen-select">
+              <option ng-repeat="item in modules" value="{{item.value}}">{{item.lable}}</option>
+            </select>
+          </p>
+        </div>
+        <div class="row row-no-gutter" style="max-height: 300px;overflow:auto">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>序号</th>
+                <th>视图名称</th>
+                <th>模块名称</th>
+                <th>创建时间</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in views" ng-class="{'success': item.id == property.value}" ng-click="selectView(item)">
+                <td>{{$index + 1}}</td>
+                <td>{{item.viewName}}</td>
+                <td>{{moduleMaps[moduleId]}}</td>
+                <td>{{item.createTime | date : 'yyyy-MM-dd HH:mm:ss'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button ng-click="cancel()" class="btn btn-primary" translate>ACTION.CANCEL</button>
+        <button ng-click="save()" class="btn btn-primary" translate>ACTION.SAVE</button>
+      </div>
+    </div>
+  </div>
+</div>

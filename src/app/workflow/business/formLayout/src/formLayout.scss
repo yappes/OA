@@ -1,0 +1,106 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+
+@include b(form-layout) {
+  @include utils-clearfix;
+  width: 95%;
+  margin: 0;
+  .pui-form-layout__item--detail {
+    margin-bottom: -22px;
+  }
+  @include e(items) {
+    margin-bottom:0;
+    font-size: $--font-size-base;
+    @include e(form-item) {
+      // margin-bottom: 0;
+      // @include e(input) {
+      //   [class*=" aui-icon-"],
+      //   [class^="aui-icon-"],
+      //   [class*=" pui-icon-"],
+      //   [class^="pui-icon-"]{
+      //     font-weight: bold;
+      //     color:#A3B3CE;
+      //   }
+      // }
+      .pui-form-layout__input{
+        // width:260px;
+        [class*=" aui-icon-"],
+        [class^="aui-icon-"],
+        [class*=" pui-icon-"],
+        [class^="pui-icon-"]{
+          font-weight: bold;
+          color:#A3B3CE;
+        }
+      }
+      .pui-form-layout__detail{
+        min-height:40px;
+        // display:block;
+        // border-bottom: 1px solid #e2efee;
+        display:table;
+        border-bottom: .5px solid #e2efee;
+        box-sizing: border-box;
+        padding-left: 20px;
+      }
+      &.is-highlight {
+        background-color: #fef0f0 !important;
+      }
+    }
+    .aui-form-item__label{
+      font-family: STHeitiSC-Medium;
+      font-size: 14px;
+      color: #a39c9c;
+    }
+    .aui-form-item__content{
+      font-family: STHeitiSC-Medium;
+      font-size: $--font-size-base;
+      color: $--nav-bgcolor;
+    }
+    .feild-label {
+      line-height: 1.3;
+      padding: 10px 3% 10px 0;
+      text-align: right;
+      &::after {
+        content: ":";
+      }
+      .required::before {
+        content: "*";
+        color: $--font-color-error;
+      }
+    }
+    .feild-value {
+      line-height: 1.3;
+    }
+    .aui-radio-group {
+      padding-top: 10px;
+    }
+    @include m(detail) {
+      .showValue {
+        // float: left;
+        // padding-left:20px;
+      }
+      .edit-operation-wrapper {
+        float: left;
+        margin-bottom: -40px;
+        margin-left: 5px;
+      }
+      .feild-value {
+        padding: 10px 0;
+        .showValue {
+          vertical-align: top;
+          max-width: calc(100% - 63px);
+          display: inline-block;
+        }
+        .edit-operation-wrapper {
+          color: $--color-primary;
+          &>* {
+            margin-left: 5px;
+          }
+        }
+      }
+      .feild-label {
+        color: $--font-color-gray;
+      }
+    }
+  }
+}

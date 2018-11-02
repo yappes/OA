@@ -1,0 +1,16 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+
+$--top-title-height:48px;
+
+@include b(nav-left) {
+  @include e(top-title) {
+    //height: $--top-title-height;
+    background-color: white;
+    // border: 1px solid $--body-bgcolor;
+    line-height: $--top-title-height;
+    padding: 0 20px;
+
+  }
+}

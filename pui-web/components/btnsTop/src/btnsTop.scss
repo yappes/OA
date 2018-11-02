@@ -1,0 +1,23 @@
+@import "~theme/mixins/mixins";
+// @import "~theme/mixins/utils";
+// @import "~theme/common/var";
+$--btnsTop-height:50px;
+@include b(btns-top) {
+  width: 100%;
+  box-sizing: border-box; // position: absolute;
+  height: $--btnsTop-height;
+  line-height: $--btnsTop-height;
+  background-color: $--color-white;
+  // padding: 0 20px;
+  padding: 0 2%;
+  font-size: $--font-size-base;
+  border-bottom:solid 1px #f1f1f1;
+  &>* {
+    vertical-align: middle !important;
+  }
+  @include when(fixed) {
+    position: fixed;
+    top: 0;
+    z-index: 4;
+  }
+}

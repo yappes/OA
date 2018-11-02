@@ -1,0 +1,20 @@
+@import "~theme/mixins/mixins";
+@import "~theme/common/var";
+$--user-selection-listbox-width:400px;
+@include b(user-selection) {
+  @include e(org) {
+    width: 29%;
+    float: left;
+    max-height: 500px;
+    overflow-y:scroll;
+  }
+  @include e(list-box) {
+    float: right;
+    width: 69%;
+    @include e(fuzzy-search) {
+      margin-bottom: 5px;
+    }
+    @include e(list) {
+    }
+  }
+}

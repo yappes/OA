@@ -1,0 +1,64 @@
+@import '~theme/common/var';
+
+.pui-message{
+  display: none;
+  position: absolute;
+  width: auto;
+  padding: 20px 0 0 0;
+  font-weight: normal;
+  font-size: $--font-size-smallest;
+  z-index: $--menu-z-index;
+  top: $--nav-top-height;
+  right:0;
+  color: $--font-color-normal;
+  background-color: $--menu-item-bgcolor;
+  box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.19);
+  width:260px;
+  // height:250px;
+  // overflow-y: scroll;
+  
+}
+.pui-message__group {
+  box-sizing: content-box;
+  overflow: hidden;
+  [class*=" aui-icon-"],
+  [class^="aui-icon-"] {
+    margin-right: 3px;    
+    width:25px;
+    height:30px;
+    line-height:30px;
+    vertical-align:middle !important;
+  }
+  &>dt{
+    height: 40px;
+    text-align:center;
+    // padding-left:10px;
+  }
+  &>dd{
+    width:225px;
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+    padding:10px 20px;
+    border-top:1px solid #F2F2F2;
+    &:hover{
+      // background-color:#F2F2F2;
+      background: $--hover-bgColor;
+    }
+    &:last-child{
+      text-align: center;
+      border-top:2px solid #F2F2F2;
+    }
+    &>.pui-message__item>.pui-message__content1,>.pui-message__item>.pui-message__content2{
+      width:200px;
+      display:inline-block;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    &>.pui-message__item>.pui-message__content1{
+      width:172px;
+    }
+  }
+
+}

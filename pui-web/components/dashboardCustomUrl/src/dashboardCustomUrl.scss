@@ -1,0 +1,9 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+
+@include b(dashboard-custom-url) {
+  iframe {
+    border: none;
+  }
+}

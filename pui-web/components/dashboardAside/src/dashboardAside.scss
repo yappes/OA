@@ -1,0 +1,15 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/animate";
+@import "~theme/common/var";
+.pui-dashboard-aside {
+  width: 100%;
+  &>.pui-dashboard-aside__common {
+    width:100%;
+    // width: 330px;
+    &:first-child {
+      margin-bottom: 20px;
+    }
+  }
+ 
+}

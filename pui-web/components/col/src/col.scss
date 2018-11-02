@@ -1,0 +1,12 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+@include b(col) {
+  width: 50%;
+  float: left;
+  // min-width: 370px;
+  @include when(full) {
+    width: 100%;
+    min-width: 100%;
+  }
+}

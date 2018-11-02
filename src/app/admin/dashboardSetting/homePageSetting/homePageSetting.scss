@@ -1,0 +1,98 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+
+//区分上下模块等
+.pui-home-page-setting {
+  // background: $--body-bgcolor;
+  & .pui-list-grid__top {
+    background: $--inner-body-bgcolor;
+    // padding: 20px 20px 20px 0;
+    padding: 1.5% 1.5% 1.5% 0;
+    box-sizing: border-box;
+    @include utils-clearfix;
+    & .pui-search__label {
+      // width: 37%;
+      width: 26%;
+      display: inline-block;
+      text-align: right;
+    }
+    & .aui-select,& .aui-input{
+      // width:200px;
+      // margin-left:10px;
+      width: 58%;
+      margin-left: 3%;
+    }
+    & .pui-search {
+      display:inline-block;
+      margin: 12px;
+      width: 27%;
+    }
+    & .pui-home-page-setting__operations {
+      float: right;
+      margin: 12px;
+    }
+  }
+  & .pui-home-page-setting__middle {
+    background: $--body-bgcolor;
+    height: 15px;
+  }
+  & .pui-home-page-setting__main{
+    // margin-top: 15px;
+    background: $--inner-body-bgcolor;
+    padding: 15px;
+    box-sizing: border-box;
+    & .pui-home-page-setting__operations {
+      margin-bottom: 15px;
+    }
+  }
+  & .pui-home-page-setting__operations {
+    &>.pui-list-grid__oper {
+      display: inline-block;
+      line-height: 34px;
+      padding: 0 15px !important;
+      color:$--color-primary; 
+      padding: 0 20px;
+      font-size: $--font-size-base;
+      &:hover {
+        background-color: $--color-primary;
+        color: $--color-white;
+      }
+    }
+  }
+}
+
+/*表格样式*/
+.pui-list-grid__table-wrapper /deep/ {
+  .aui-table__header thead th {
+    background:#FFF;
+    height: 50px;
+  }
+  .aui-table th.is-leaf, .aui-table td {
+    border-bottom: none;
+  }
+  .aui-table tr {
+    // box-shadow: inset 0px -1px 0px 0px #E5EBF4, inset 0px 1px 0px 0px #E5E3F4;
+    box-shadow:none;
+  }
+  .aui-table__header {
+    border-top: 1px solid #E5EBF4;
+    border-left: none;
+    border-right: none;
+    border-bottom:  1px solid #E5EBF4;
+  }
+  .aui-table__header thead th .cell {
+    color: #909399;
+    font-weight: bold;
+  }
+  .aui-table--striped .aui-table__body tr.aui-table__row--striped td {
+    background: #f7f7f7;
+  }
+}
+
+//表格中的操作样式
+.pui-icon-fenlei {
+  cursor: pointer;
+  color: #C0CADA;
+  // position: relative;
+}

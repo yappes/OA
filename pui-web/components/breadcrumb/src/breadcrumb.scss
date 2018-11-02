@@ -1,0 +1,76 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/animate";
+@import "~theme/common/var";
+
+.pui-breadcrumb__wrap {
+  position: relative; 
+  width: 100%;
+  min-width: 1200px;
+  min-height: $--breadcrumb-height;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+ 
+  @include b(breadcrumb) {
+    background-color: $--breadcrumb-bgcolor;
+    max-height: $--breadcrumb-height;
+    // line-height: $--breadcrumb-height;
+    font-size: 20px;
+    color: $--font-color-normal;
+    @include e(current) {
+      display: inline-block;
+      position: relative;
+      z-index: 3;
+      background-color: $--breadcrumb-bgcolor;
+      float: left;
+      padding-left: 20px;
+      @include e(current-span) {
+        color: $--color-primary;
+      }
+      .pui-icon-superior-icon,
+      .pui-icon-sjiantou02 {
+        color: #9CA3AD;
+        margin: 0 10px;
+      }
+      #btn-toggle {
+        cursor: pointer;
+        line-height: $--breadcrumb-height;
+      }
+      @include utils-last-pipe(#DFE2E6, 36px);
+    }
+    @include e(toggle-bar) {
+      height:50px;
+      display: inline-block;
+      position: relative;
+      background-color: white;
+      padding-top: 13px;
+      box-sizing: border-box;
+    }
+    @include e(alternative) {
+      background-color: $--breadcrumb-bgcolor;
+      position: relative;
+      z-index: 1;
+      
+      @include e(alternative__item) {
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
+        padding: 0 20px;
+        position: relative;
+        // .more {
+        //   // color: #26B7AE;
+        // }
+        &:hover{
+          color: #26B7AE;
+        }
+        @include utils-pipe(#A3B0CC, 24px);
+        & .icon {
+          margin-right: 3px;
+        }
+        
+        
+      }
+    }
+  }
+}

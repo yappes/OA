@@ -1,0 +1,29 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+.color-primary {
+  color: $--color-primary;
+}
+
+.btn-icon {
+  cursor: pointer;
+}
+
+@include b(batch-table) {
+  width: 100%;
+  margin-top: 10px;
+  position: relative;
+  // .aui-table th, .aui-table td{
+  //   padding:0 !important;
+  // }
+  // .aui-table th>.cell{
+  //   height:24px;
+  // }
+  .pui-batch-table__button{
+    padding: 0 20px;
+  }
+  @include e(oper) {
+    margin-top: 10px;
+    color: $--color-white;
+  }
+}

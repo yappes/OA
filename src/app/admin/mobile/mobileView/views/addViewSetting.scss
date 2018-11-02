@@ -1,0 +1,233 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+
+@include b(add-view-setting-dialog) {
+  height: calc(100% - 48px);
+  overflow: hidden;
+  .aui-dialog {
+    height: 100%;
+    background-color: #EEF1F5;
+  }
+  .aui-dialog__header {
+    padding: 0;
+  }
+  & .aui-dialog__body {
+    box-sizing: border-box;
+    height: calc(100% - 59px);
+    font-size: 14px;
+    overflow: hidden;
+    padding: 0;
+  }
+  @include e(header) {
+    box-sizing: border-box;
+    background-color: #fff;
+    width: 100%;
+    height: 59px;
+    padding: 0 15px;
+    border-bottom: 1px solid #D8D8E3;
+    line-height: 60px;
+    .view-name {
+      font-size: 18px;
+    }
+    .pui-btn {
+      float: right;
+      margin-left: 15px;
+      margin-top: 13px;
+    }
+  }
+  @include e(section) {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: #EEF1F5;
+    overflow: auto;
+  }
+}
+
+@include b(add-view-content-wrapper) {
+  box-sizing: border-box;
+  @include e(left) {
+    float: left;
+    width: 300px;
+    background-color: #F6F8FA;
+    border-right: 1px solid #D8D8E3;
+    .aui-collapse-item__header {
+      background-color: #F6F8FA;
+      font-size: 14px;
+      border-color: #D6DADF;
+    }
+    .aui-collapse-item__content {
+      padding: 0;
+    }
+    .columns-list {
+      overflow: hidden;
+    }
+    .columns-item {
+      box-sizing: border-box;
+      float: left;
+      width: 50%;
+      background-color: #EAEDF0;
+      border-bottom: 1px solid #D6DADF;
+      border-right: 1px solid #D6DADF;
+      padding: 3px 10px;
+      cursor: pointer;
+      &.is-selected,
+      &:hover {
+        background-color: #ccddfe;
+        border-color: #ccddfe;
+      }
+    }
+  }
+  @include e(right) {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 20px;
+    margin-left: 300px;
+  }
+}
+
+@include b(add-view-layout-wrapper) {
+  background-color: #FCFDFF;
+  border: 1px solid #DFE2E6;
+  padding: 20px;
+  margin-bottom: 20px;
+  @include e(header) {
+    font-size: 16px;
+    font-weight: 900;
+  }
+  @include e(section) {
+    margin-top: 20px;
+    .header {
+      padding: 10px;
+      background-color: #E0E5ED;
+      border: 1px solid #d3d5d6;
+      border-bottom: 0;
+      .aui-form-item {
+        margin-bottom: 0;
+      }
+      .title {
+        display: inline-block;
+      }
+      .max-min-wrapper {
+        display: inline-block;
+        .min,
+        .max {
+          display: inline-block;
+          margin-left: 30px;
+        }
+        .aui-input {
+          width: 80px;
+        }
+      }
+    }
+    .header-btns {
+      float: right;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+    .content {
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #DFE2E6;
+      .aui-form {
+        padding-top: 5px;
+        overflow: hidden;
+      }
+      .aui-form-item-wrapper {
+        display: inline-block;
+        vertical-align: top;
+        width: calc(100% - 50px);
+        padding-right: 50px;
+        position: relative;
+        height: 100%;
+      }
+      .aui-form-item {
+        position: relative;
+        z-index: 1;
+      }
+      .aui-form-item-mask {
+        box-sizing: border-box;
+        width: 100%;
+        // height: 50px;
+        height: calc( 100% - 12px);
+        border: 1px solid #fff;
+        position: absolute;
+        top: -5px;
+        left: 0;
+        z-index: 0;
+        transition: all .5s;
+      }
+      .isTextarea {
+        top: -8px;
+        height: calc( 100% - 6px);
+      }
+      .avatar-uploader-item-wrapper {
+        .aui-form-item-mask {
+          height: 112px;
+        }
+      }
+      .form-item-btns {
+        position: absolute;
+        right: 5px;
+        top: 10px;
+        visibility: hidden;
+        cursor: pointer;
+        transition: all .5s;
+      }
+    }
+    &.is-edit {
+      .header,
+      .content {
+        border-style: dashed;
+        border-color: #82A9D1;
+      }
+      .aui-form-item__label,
+      .aui-form-item-mask {
+        cursor: move;
+      }
+      .aui-form-item-wrapper {
+        &:hover,
+        .drag {
+          .aui-form-item-mask {
+            background-color: #E9EFFB;
+            border: 1px solid #82A9D1;
+          }
+          .form-item-btns {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+  .avatar-uploader {
+    .aui-upload {
+      border: 1px dashed #d9d9d9;
+      border-radius: 6px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      &:hover {
+        border-color: #409EFF;
+      }
+    }
+    .avatar-uploader-icon {
+      font-size: 28px;
+      color: #8c939d;
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+    }
+  } 
+}
+
+.setting-popover {
+  .aui-checkbox {
+    display: block;
+    margin-left: 0;
+    & + .aui-checkbox {
+      margin-top: 5px;
+    }
+  }
+}

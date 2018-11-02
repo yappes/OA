@@ -1,0 +1,98 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+
+@include b(list-grid) {
+  width: 100%;
+  min-width: 860px;
+  @include e(top) {
+    @include utils-clearfix;
+    @include e(operations-wrapper) {
+      float: left;
+      @include e(oper) {
+        display: inline-block;
+        line-height: 34px;
+        margin-right: 20px;
+        color:$--color-primary; 
+        padding: 0 20px;
+        font-size: $--font-size-base;
+        &:hover {
+          background-color: $--color-primary;
+          color: $--color-white;
+        }
+      }
+    }
+    @include e(fuzzy-search) {
+      float: right;
+      width: 250px;
+    }
+
+    @include e(table-wrapper) {
+      margin-top: 10px;
+      position: relative;
+      // .pui-icon-shezhi1 {
+      //   cursor: pointer;
+      //   position: absolute;
+      //   top: 13px;
+      //   font-weight: normal;
+      //   right: 22px;
+      //   z-index: 1;
+      // }
+    }
+
+    @include e(oper-in-row) {
+      position: absolute;
+      display: none;
+      top: 6px;
+      left: 6px;
+      width: 100px;
+      z-index: 6;
+      font-size: 14px;
+      color: $--font-color-normal;
+      height: initial;
+      background-color: #FCFDFF;
+      box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.30);
+      padding: 10px 0;
+      // @include e(oper-in-row-item) {
+      //   padding: 0 20px;
+      //   line-height: 24px;
+      //   &:hover {
+      //     background-color: $--color-primary;
+      //     color: $--color-white;
+      //   }
+      // }
+    }
+
+    @include e(footer) {
+      font-size: $--font-size-base;
+      color: $--font-color-normal;
+      margin-top: 30px;
+      &>* {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .pg {
+        padding: 0 12px;
+        height: 34px;
+        line-height: 34px;
+        box-sizing:border-box;
+        border: 1px solid #E5EBF4;
+        border-radius: 5px;
+        background-color: $--color-white;
+      }
+    }
+  }
+}
+
+.pui-icon-fenlei {
+  cursor: pointer;
+  color: #C0CADA;
+  position: relative;
+
+  &:hover .pui-list-grid__oper-in-row {
+    display: block;
+  }
+}

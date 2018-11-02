@@ -1,0 +1,42 @@
+{
+  "cloumns": [{
+    "id": 1,
+    "gridKey": "date",
+    "gridLabel": "日期"
+  },{
+    "id": 2,
+    "gridKey": "name",
+    "gridLabel": "姓名"
+  },{
+    "id": 3,
+    "gridKey": "address",
+    "gridLabel": "地址"
+  }],
+  "records": [{
+    "id": 1,
+    "date": "2016-05-02",
+    "name": "王小虎",
+    "address": "上海市普陀区金沙江路 1518 弄"
+  }, {
+    "id": 2,
+    "date": "2016-05-03",
+    "name": "王小虎",
+    "address": "上海市普陀区金沙江路 1518 弄"
+  }, {
+    "id": 3,
+    "date": "2016-05-04",
+    "name": "王小虎",
+    "address": "上海市普陀区金沙江路 1518 弄"
+  }, {
+    "id":4,
+    "date": "2016-05-05",
+    "name": "王小虎",
+    "address": "上海市普陀区金沙江路 1518 弄"
+  }],
+  "page": {
+    "currentPage": 1,
+    "pageSize": 10,
+    "totalPage": 4,
+    "totalRecord": 4
+  }
+}

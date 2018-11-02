@@ -1,0 +1,147 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+@import '~theme/icon';
+.pui-check-pending{
+  padding:15px;
+  box-sizing: border-box;
+  &>.pui-check-pending__up{
+    background: $--inner-body-bgcolor;
+    // padding: 20px 20px 20px 0;
+    padding: 1.5% 1.5% 1.5% 0;
+    box-sizing: border-box;
+    @include utils-clearfix;
+    & .pui-check-pending__label {
+      width: 37%;
+    }
+    & .aui-select,& .aui-input{
+      // width:200px;
+      // margin-left:10px;
+      width: 58%;
+      margin-left: 3%;
+    }
+    & .pui-check-pending__item {
+      display:inline-block;
+      margin: 12px;
+      width: 27%;
+    }
+    & .pui-drafts__operations {
+      float: right;
+      margin: 12px;
+    }
+  }
+  &>.pui-check-pending__main{
+    margin-top: 15px;
+    background: $--inner-body-bgcolor;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  // & .pui-check-pending__btns{
+  //   // margin-bottom: 15px;
+  //   &>.pui-check-pending__btn{
+  //     padding: 0 15px !important;
+  //   }
+  // }
+  & .pui-drafts__operations {
+    &>.pui-list-grid__oper {
+      display: inline-block;
+      line-height: 34px;
+      padding: 0 15px !important;
+      color:$--color-primary; 
+      padding: 0 20px;
+      font-size: $--font-size-base;
+      &:hover {
+        background-color: $--color-primary;
+        color: $--color-white;
+      }
+    }
+  }
+  // & .pui-check-pending__down{
+    // & .pui-check-pending__oper-in-row{
+      // position: absolute;
+      // display: none;
+      // top: 6px;
+      // left: 6px;
+      // width: 100px;
+      // z-index: 6;
+      // font-size: $--font-size-base;
+      // color: $--font-color-normal;
+      // height: initial;
+      // background-color: #FCFDFF;
+      // box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.30);
+      // padding: 10px 0;
+      // & .pui-check-pending__oper-in-row-item{
+      //   padding: 0 20px;
+      //   line-height: 24px;
+      //   &:hover {
+      //     background-color: $--color-primary;
+      //     color: $--color-white;
+      //   }
+      // }
+
+    // }
+    // padding: 5px 10px;
+    // margin: 0 -12px;
+    // line-height: 24px;
+    // // line-height: 18px;
+    // // height: 24px;
+    // box-sizing: border-box;
+    // &:hover {
+    //   // background-color: $--color-primary;
+    //   background-color: #e5f9f7;
+    //   // color: $--color-white;
+    // }
+    
+    
+  // }
+ 
+  & .dialog-footer {
+    padding-top: 15px;
+  }
+  
+
+}
+
+
+.pui-icon-fenlei {
+  cursor: pointer;
+  color: #C0CADA;
+  position: relative;
+
+  &:hover .pui-check-pending__oper-in-row {
+    display: block;
+  }
+}
+
+.pui-check-pending__down {
+  /*表格样式*/
+  /deep/ .aui-table__header thead th {
+    background:#FFF;
+    height: 50px;
+  }
+  /deep/ .aui-table th.is-leaf, /deep/ .aui-table td {
+    border-bottom: none;
+  }
+  /deep/ .aui-table tr {
+    // box-shadow: inset 0px -1px 0px 0px #E5EBF4, inset 0px 1px 0px 0px #E5E3F4;
+    box-shadow:none;
+  }
+  /deep/ .aui-table__header {
+    border-top: 1px solid #E5EBF4;
+    border-left: none;
+    border-right: none;
+    border-bottom:  1px solid #E5EBF4;
+  }
+  /deep/ .aui-table__header thead th .cell {
+    color: #909399;
+    font-weight: bold;
+  }
+  /deep/ .aui-table--striped .aui-table__body tr.aui-table__row--striped td {
+    background: #f7f7f7;
+  }
+
+}
+
+
+
+ 

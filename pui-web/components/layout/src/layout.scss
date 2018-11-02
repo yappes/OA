@@ -1,0 +1,63 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import '~theme/common/var';
+@import '~theme/icon';
+@import './inituseragent.scss';
+
+$--left-nav-width:240px;
+body {
+  width: 100%;
+  min-width: 1024px; // max-width: 1440px;
+  background-color: $--body-bgcolor;
+  font-size: $--font-size-base;
+  color: $--font-color-normal;
+}
+
+@include b(layout) {
+  width: 100%;
+  margin-bottom: 30px;
+  @include utils-clearfix;
+
+  @include e(topBar-wrapper) {
+    position: relative;
+    height: $--layout-topBar-height;
+  }
+
+  @include e(left-nav-wrapper) {
+    width: $--left-nav-width;
+    height: 100%;
+    background-color: #EAEDF1;
+    float: left;
+  }
+
+  @include e(content-right) {
+    float: left;
+    width: calc(100% - 240px);
+    @include utils-clearfix;
+  }
+
+  @include e(content) {
+    // max-width: 1380px;
+    min-width: 1160px;
+    width: 96%;
+    margin: 15px auto 0 auto;
+    z-index:20;
+
+    @include utils-clearfix;
+
+    @include e(content-main) {
+      @include utils-clearfix;
+
+      float: left;
+      width: 83%;
+      position: relative;
+    }
+
+    @include e(content-side) {
+      // width: 17%;
+      width: 15%;
+      right: 0;
+      position: fixed;
+    }
+  }
+}

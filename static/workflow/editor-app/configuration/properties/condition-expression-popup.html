@@ -1,0 +1,170 @@
+<div class="modal" ng-controller="KisBpmConditionExpressionPopupCtrl">
+  <div class="modal-dialog modal-wide">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">&times;</button>
+        <h2 translate>PROPERTY.SEQUENCEFLOW.CONDITION.TITLE</h2>
+      </div>
+      <div class="modal-body">
+        <div class="detail-group clearfix">
+          <div class="form-group clearfix">
+            <div class="col-xs-12">
+              <label class="col-xs-3">{{'PROPERTY.SEQUENCEFLOW.CONDITION.STATIC' | translate}}</label>
+              <div class="col-xs-9">
+                <textarea class="form-control" ng-model="conditionExpression.value" style="width:90%; height:100%; max-width: 100%; max-height: 100%; min-height: 50px"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 query-builder form-group form-inline">
+            <div ng-include="'rules-group-container.html'" class="rules-group-container" ng-init="condition = conditionBuilder"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button ng-click="close()" class="btn btn-primary" translate>ACTION.CANCEL</button>
+          <button ng-click="save()" class="btn btn-primary" translate>ACTION.SAVE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 递归分组容器 -->
+  <script id="rules-group-container.html" type="text/ng-template">
+    <div class="rules-group-header">
+      <div class="btn-group group-conditions">
+        <label class="btn btn-xs btn-primary" ng-class="{'active': condition.cond === 'AND'}">
+          <input type="radio" ng-model="condition.cond" name="builder-basic_group_{{condition.id}}_cond" value="AND"> AND </label>
+        <label class="btn btn-xs btn-primary" ng-class="{'active': condition.cond === 'OR'}">
+          <input type="radio" ng-model="condition.cond" name="builder-basic_group_{{condition.id}}_cond" value="OR"> OR </label>
+      </div>
+      <div class="btn-group pull-right group-actions">
+        <button type="button" class="btn btn-xs btn-success" ng-click="pushConditionBuilder(condition, 'rule')">
+          <i class="glyphicon glyphicon-plus"></i> Add rule
+        </button>
+        <button type="button" class="btn btn-xs btn-success" ng-click="pushConditionBuilder(condition, 'group')">
+          <i class="glyphicon glyphicon-plus-sign"></i> Add group
+        </button>
+        <button type="button" class="btn btn-xs btn-danger" ng-click="removeGroup(pgroup, condition)" ng-hide="!pgroup">
+          <i class="glyphicon glyphicon-remove"></i> Delete
+        </button>
+      </div>
+      <div class="error-container">
+        <i class="glyphicon glyphicon-warning-sign"></i>
+      </div>
+    </div>
+    <div class="rules-group-body">
+      <div class="rules-list">
+        <div ng-repeat="($index, rule) in condition.rules" ng-class="rule.type ==='group' ? 'rules-group-container': 'rule-container'"
+          ng-include="rule.type ==='group' ? 'rules-group-container.html' : 'rule-container.html'" ng-init="rule.type ==='group' && (pgroup = condition) && (condition = rule)">
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script id="rule-container.html" type="text/ng-template">
+    <div class="rule-header">
+      <div class="btn-group pull-right rule-actions">
+        <button type="button" class="btn btn-xs btn-danger" ng-click="removeRule(condition, rule)">
+          <i class="glyphicon glyphicon-remove"></i> Delete </button>
+      </div>
+    </div>
+    <div class="rule-filter-container">
+      <select class="chosen-select-filter" id="chosen-select-columnKey-{{rule.id}}" ng-init="initChosen(rule, 'columnKey')">
+        <option></option>
+        <optgroup ng-repeat="columnGroup in columnGroups" label="{{columnGroup.label}}">
+          <option ng-repeat="item in columnGroup.columns" value="{{item.value}}">{{item.label}}</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="rule-operator-container">
+      <select class="form-control" id="chosen-select-operator-{{rule.id}}" ng-init="initChosen(rule, 'operator')">
+          <option></option>
+        <option value="eq">等于</option>
+        <option value="ne">不等于</option>
+        <option value="gt">大于</option>
+        <option value="ge">大于等于</option>
+        <option value="lt">小于</option>
+        <option value="le">小于等于</option>
+        <option value="empty">为空</option>
+        <option value="notempty">不为空</option>
+        <option value="expr">表达式</option>
+      </select>
+    </div>
+
+    <div class="rule-value-container" ng-hide="rule.operator == 'empty' || rule.operator == 'notempty'" style="max-width: 268px"
+      ng-include="includeTemplate(rule)">
+    </div>
+  </script>
+
+
+  <script id="rule-value-input.html" type="text/ng-template">
+    <input class="form-control" ng-model="rule.value">
+  </script>
+
+  <script id="rule-value-dict.html" type="text/ng-template">
+    <div ng-controller="KisBpmConditionExpressionPopupDictCtrl">
+      <select class="chosen-select">
+        <option></option>
+        <option ng-repeat="dict in dicts" value="{{dict.value}}">{{dict.label}}</option>
+      </select>
+    </div>
+  </script>
+
+  <script id="rule-value-dept-select.html" type="text/ng-template">
+    <div ng-controller="KisBpmConditionExpressionDeptSelectPopupCtrl">
+      <div class="input-group">
+        <input type="text" class="form-control" ng-model="showVal" readonly>
+        <div class="input-group-addon" ng-click="showDeptPopup()" style="cursor:pointer">
+          <i class="glyphicon glyphicon-indent-left"></i>
+        </div>
+      </div>
+      <div class="abn-tree modal fade" ng-class="popupClass" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-wide" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="hideDeptPopup()">&times;</button>
+              <h2>部门选择</h2>
+            </div>
+            <div class="modal-body">
+              <div class="row row-no-gutter" style="
+                  background: whitesmoke;
+                  border: 1px solid lightgray;
+                  border-radius: 5px;
+                  height: 450px;
+                  max-height: 450px;
+                  overflow-y: auto;">
+                <abn-tree tree-data="treeData" tree-control="$treeControl" expand-level="2" on-select="selectOrgHandler(branch)"></abn-tree>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button ng-click="hideDeptPopup()" class="btn btn-primary" translate>ACTION.CANCEL</button>
+              <button ng-click="hideDeptPopup()" class="btn btn-primary" translate>ACTION.SAVE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </script>
+
+  <script id="rule-value-user-select.html" type="text/ng-template">
+    <div ng-controller="KisBpmConditionExpressionUserSelectPopupCtrl">
+      <div class="input-group">
+        <input type="text" class="form-control" ng-model="showVal" readonly>
+        <div class="input-group-addon" ng-click="showUserPopup()" style="cursor:pointer">
+          <i class="glyphicon glyphicon-user"></i>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+  <script id="rule-value-data-select.html" type="text/ng-template">
+    <div ng-controller="KisBpmConditionExpressionDataSelectPopupCtrl">
+      <div class="input-group">
+        <input type="text" class="form-control" ng-model="showVal" readonly>
+        <div class="input-group-addon" ng-click="showDataSelectPopup()" style="cursor:pointer">
+          <i class="glyphicon glyphicon-search"></i>
+        </div>
+      </div>
+    </div>
+  </script>
+  </div>

@@ -1,0 +1,37 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+$--body-bdColor: #e7e7e7;
+$--border-padding: 4%;
+$--detail-color: #a39c9c;
+.pui-dashboard-detail-inter {
+  // margin: 0 $--border-padding $--border-padding $--border-padding;
+  padding: $--border-padding;
+  padding-left: 0;
+  & > .pui-dashboard-detail-inter__content {
+    margin-left: $--border-padding;
+    border-bottom: 1px dashed #ddd;
+    box-sizing: border-box;
+    padding: 10px;
+    // &:not(:last-child) {
+      // border-bottom: 1px dashed #ddd;
+    // }
+  }
+  & .pui-dashboard-detail-inter__aside {
+    float: left;
+    // display: inline-block;
+    margin-right: 2%;
+    line-height: 45px;
+  }
+  & .pui-dashboard-detail-inter__main {
+    padding-left: 7%;
+    p {
+      margin: 0;
+      @include utils-ellipsis;
+      &:last-child {
+        color: $--detail-color;
+        cursor: pointer;
+      }
+    }
+  }
+}

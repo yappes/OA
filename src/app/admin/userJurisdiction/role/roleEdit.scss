@@ -1,0 +1,22 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+
+@include b(role-edit) {
+  .select-org-item {
+    .aui-input__suffix,
+    .aui-select-dropdown {
+      display: none;
+    }
+  }
+}
+.select-org-popper {
+  max-height: 200px;
+  overflow-y: auto;
+}
+.pui-role-edit {
+  & .pui-role-edit__form {
+    padding: 0px 9% 0px 3%;
+    min-width: 300px;
+  }
+}

@@ -1,0 +1,56 @@
+@import "~theme/mixins/mixins";
+button {
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit; // line-height: inherit;
+  color: inherit;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  outline: 0;
+  margin: 0;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+[class*=" pui-icon-"],
+[class^="pui-icon-"] {
+  &:before {
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+}
+
+@include b(btn) {
+  border: 1px solid #E5EBF4;
+  background-color: $--color-white;
+  color: $--font-color-normal;
+  @include m(primary) {
+    color: $--color-white;
+    background-color: $--color-primary;
+    border-color: $--color-primary;
+  }
+  @include when(disabled) {
+    color: #bfcbd9;
+    cursor: not-allowed;
+    background-image: none;
+    background-color: #eef1f6;
+    border-color: #d1dbe5
+  }
+  @include when(plain) {
+    &:hover {
+      border-color: $--color-primary;
+      color: $--color-primary;
+    }
+    @include when(disabled) {
+      background-color: #fff;
+      border-color: #d1dbe5;
+      color: #bfcbd9;
+    }
+  }
+}

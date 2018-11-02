@@ -1,0 +1,55 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+
+@include b(operation-rules-setting) {
+  // overflow-y: hidden;
+  & .pui-operation-rules-setting__container {
+    background: $--body-bgcolor;
+  }
+  & .pui-operation-rules-setting__aside {
+    margin-right: 5px;
+    background: $--inner-body-bgcolor;
+    padding-bottom: 13px;
+    box-sizing: border-box;
+  }
+  & .pui-operation-rules-setting__main {
+    background: $--inner-body-bgcolor;
+    margin-left:5px;
+    padding-bottom: 13px;
+    box-sizing: border-box;
+  }
+  & .view-list {
+    overflow-y: auto;
+  }
+  @include e(left) {
+    // float: left;
+    // width: 150px;
+    padding-right: 15px;
+    .view-item {
+      line-height: 2.5;
+      cursor: pointer;
+      &.is-active {
+        color: $--color-primary;
+      }
+      &:hover {
+        background-color: #E9F8F7;
+      }
+    }
+  }
+  @include e(middle) {
+    width: 20px;
+    float: left;
+    background: #ddd;
+    // border:1px solid #ddd;
+    // box-sizing: border-box;
+    // height: 1000px;
+  }
+  @include e(right) {
+    // margin-left: 170px;
+    padding-left: 15px;
+    .pui-list-grid__top {
+      height: 36px;
+    }
+  }
+}

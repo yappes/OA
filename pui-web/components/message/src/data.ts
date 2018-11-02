@@ -1,0 +1,46 @@
+var data={
+    activeName:"first",
+    messageCount:6,
+    messageList:[
+        {
+            id:1,
+            type:1,
+            content:"第1条信息",
+            createTime:12345678945
+        },
+        {
+            id:2,
+            type:1,
+            content:"第2条信息第2条信息第2条信息第2条信息第2条信息第2条信息第2条信息第2条信息第2条信息",
+            createTime:12356478954
+        },
+        {
+            id:3,
+            type:2,
+            content:"第3条信息",
+            createTime:12365498726,
+            percentAge:20
+        },
+        {
+            id:4,
+            type:1,
+            content:"第4条信息第4条信息第4条信息第4条信息第4条信息第4条信息第4条信息第4条信息",
+            createTime:12365498752
+        },
+        {
+            id:5,
+            type:2,
+            content:"第5条信息5条信息5条信息5条信息5条信息5条信息5条信息",
+            createTime:12365325892,
+            percentAge:60
+        },
+        {
+            id:6,
+            type:1,
+            content:"第6条信息",
+            createTime:12332145695
+        },
+    ]
+};
+
+export default function () { return data };

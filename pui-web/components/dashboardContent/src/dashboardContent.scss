@@ -1,0 +1,12 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+  $--body-bdColor: #E7E7E7;
+  $--border-padding: 4%;
+ 
+.pui-dashboard-content {
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  color: #26B7AE;
+}

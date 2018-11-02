@@ -1,0 +1,7 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+
+@include b(view-setting) {
+  padding-bottom: 13px;
+}

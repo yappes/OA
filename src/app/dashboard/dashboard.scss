@@ -1,0 +1,10 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+
+@include b(dashboard) {
+  overflow: auto;
+  .pui-container {
+    height: 100%;
+  }
+}

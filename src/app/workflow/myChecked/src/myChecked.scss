@@ -1,0 +1,117 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+@import '~theme/icon';
+
+.pui-my-checked{
+  padding: 15px;
+  box-sizing: border-box;
+  &>.pui-my-checked__up{
+    background: $--inner-body-bgcolor;
+    padding: 1.5% 1.5% 1.5% 0;
+    box-sizing: border-box;
+    @include utils-clearfix;
+    & .pui-my-checked__label {
+      width: 37%;
+      display: inline-block;
+      text-align: right;
+    }
+    & .aui-select,& .aui-input{
+      width: 58%;
+      margin-left: 3%;
+    }
+    & .pui-my-checked__item {
+      display:inline-block;
+      margin: 12px;
+      width: 27%;
+    }
+    & .pui-drafts__operations {
+      float: right;
+      margin: 12px;
+    }
+  }
+  &>.pui-my-checked__main{
+    margin-top: 15px;
+    background: $--inner-body-bgcolor;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  & .pui-drafts__operations{
+    &>.pui-list-grid__oper {
+      display: inline-block;
+      line-height: 34px;
+      padding: 0 15px !important;
+      color:$--color-primary; 
+      padding: 0 20px;
+      font-size: $--font-size-base;
+      &:hover {
+        background-color: $--color-primary;
+        color: $--color-white;
+      }
+    }
+  }
+  
+  // & .pui-my-checked__down{
+    // & .pui-my-checked__oper-in-row{
+    //   position: absolute;
+    //   display: none;
+    //   top: 6px;
+    //   left: 6px;
+    //   width: 100px;
+    //   z-index: 6;
+    //   font-size: $--font-size-base;
+    //   color: $--font-color-normal;
+    //   height: initial;
+    //   background-color: #FCFDFF;
+    //   box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.30);
+    //   padding: 10px 0;
+    //   & .pui-my-checked__oper-in-row-item{
+    //     padding: 0 20px;
+    //     line-height: 24px;
+    //     &:hover {
+    //       background-color: $--color-primary;
+    //       color: $--color-white;
+    //     }
+    //   }
+    // }
+    
+  // }
+  
+}
+
+.pui-icon-fenlei {
+  cursor: pointer;
+  color: #C0CADA;
+  position: relative;
+  &:hover .pui-my-checked__oper-in-row {
+    display: block;
+  }
+}
+
+.pui-my-checked__down /deep/ {
+  /*表格样式*/
+  .aui-table__header thead th {
+    background:#FFF;
+    height: 50px;
+  }
+  .aui-table th.is-leaf, .aui-table td {
+    border-bottom: none;
+  }
+  .aui-table tr {
+    // box-shadow: inset 0px -1px 0px 0px #E5EBF4, inset 0px 1px 0px 0px #E5E3F4;
+    box-shadow:none;
+  }
+  .aui-table__header {
+    border-top: 1px solid #E5EBF4;
+    border-left: none;
+    border-right: none;
+    border-bottom:  1px solid #E5EBF4;
+  }
+  .aui-table__header thead th .cell {
+    color: #909399;
+    font-weight: bold;
+  }
+  .aui-table--striped .aui-table__body tr.aui-table__row--striped td {
+    background: #f7f7f7;
+  }
+}

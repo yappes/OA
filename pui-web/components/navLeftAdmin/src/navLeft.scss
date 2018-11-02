@@ -1,0 +1,38 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+
+$--top-title-height:48px;
+
+@include b(nav-left) {
+  @include e(top-title) {
+    //height: $--top-title-height;
+    background-color: white;
+    // border: 1px solid $--body-bgcolor;
+    line-height: $--top-title-height;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+}
+
+.pui-nav-left {
+  background: $--nav-bgcolor;
+  & > .aui-menu {
+    border: 0;
+  }
+}
+.aui-menu-vertical-demo  {
+  // .pui-aside {
+  //   background: $--nav-bgcolor;
+    
+  /deep/ .aui-submenu__title {
+      color: #fcfdff;
+    }
+    & .pui-menu__item {
+      font-family: STHeitiSC-Medium;
+      font-size: 14px;
+      color: #808da5;
+      letter-spacing: 0px;
+    }
+  // }
+}

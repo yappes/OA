@@ -1,0 +1,64 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+@include b(batch-import) {
+  margin-top: 24px;
+  font-size: $--font-size-base;
+  .paragram-wrapper {
+    width: 800px;
+    margin: 0 auto 12px auto;
+    @include utils-clearfix;
+
+    &.title {
+      color: #31394A;
+      font-weight: bold;
+      margin-top: 46px;
+    }
+    .paragram {
+      width: 400px;
+      float: left;
+      @include utils-clearfix;
+
+      .attention {
+        display: inline-block;
+        vertical-align: text-top;
+      }
+      .select-file {
+        margin-top: 23px;
+        .selectedfiles-name {
+          margin-left: 12px;
+          vertical-align: text-top;
+        }
+      }
+    }
+  }
+  a {
+    color: $--color-primary;
+  }
+  @include e(oper-wrapper) {
+    width: 800px;
+    margin: 20px auto 0 auto;
+    text-align: center;
+  }
+  .import-feild-tip {
+    font-size: $--font-size-large;
+    color: $--color-primary;
+    text-align: center;
+    margin: 45px auto;
+  }
+  
+  @include e(result-box) {
+    width: 390px;
+    margin: 30px auto 0 auto;
+    font-size: $--font-size-base;
+    .progress-text {
+      font-weight: bold;
+    }
+    .progress-detail-box {
+      margin-top: 20px;
+    }
+    .download-exceptional-data {
+      margin-left: 4px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import "~theme/mixins/mixins";
+$--steps-height:24px;
+@include b(steps) {
+  // width: 704px;
+  height: $--steps-height;
+  line-height: $--steps-height;
+  float: right;
+  padding: 0;
+  margin: 0;
+  list-style-type: decimal-leading-zero;
+  li {
+    display: inline-block;
+  }
+}

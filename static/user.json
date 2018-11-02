@@ -1,0 +1,33 @@
+{
+  "username": "mamingyang@aos",
+  "status": "1",
+  "entName": "上海赞同",
+  "roleId": -1,
+  "superiorLeader": -1,
+  "userHeadPhoto": "",
+  "isAdmin": 1,
+  "pvgExtProps": "",
+  "userId": 1,
+  "userCode": "US000000003",
+  "realName": "匿名用户",
+  "roleids": [],
+  "entCode": "AOS",
+  "entLogoUrl": "",
+  "entProps": {
+    "file.path": "D:/AOS/",
+    "process.enable": "true",
+    "file.url": "http://192.168.30.30:8099/",
+    "process.modeler.url": "http://192.9.200.157:81/"
+  },
+  "orgCode": "0001001",
+  "orgName": "",
+  "entAccount": "aos",
+  "dataPermission": -1,
+  "authorities": [{
+    "authority": "ROLE_USER"
+  }],
+  "credentialsNonExpired": true,
+  "accountNonLocked": true,
+  "accountNonExpired": true,
+  "enabled": true
+}

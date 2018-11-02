@@ -1,0 +1,141 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+$--pager-height:34px;
+[class*=" pui-icon-"],
+[class^="pui-icon-"] {
+  vertical-align: middle;
+}
+
+@include b(pagination) {
+
+  height: $--pager-height;
+  white-space: nowrap;
+  line-height: $--pager-height;
+  box-sizing: border-box;
+  font-size: $--font-size-base;
+  color: #9BADCA; // margin-top: 30px;
+  user-select:none;
+  // margin-bottom: 30px;
+  &>* {
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+  }
+  button {
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+  }
+  @include e(first) {
+    margin-right:10px;
+  }
+  @include e(last) {
+    margin-left:10px;
+  }
+  @include e(number-list) {
+    height: $--pager-height;
+    display: inline-block;
+    line-height: $--pager-height;
+    box-sizing: inherit;
+    // border-radius: 8px;
+    font-size: 0;
+    @include e(number) {
+      width: $--pager-height;
+      display: inline-block;
+      font-size: $--font-size-base;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid #E5EBF4;
+      background-color: $--color-white;
+      & + .pui-pagination__number {
+        border-left: 1px solid #E5EBF4;
+      }
+      &:hover {
+        background-color: $--color-primary;
+        color: $--color-white;
+      }
+    }
+  }
+  .active {
+    background-color: $--color-primary;
+    color: $--color-white;
+  }
+  .disable {
+    background-color: rgba(128, 128, 128, 0.336);
+    color: $--color-white;
+    cursor:not-allowed;
+  }
+  .pg {
+    padding: 0 12px;
+    height: $--pager-height;
+    display: inline-block;
+    line-height: $--pager-height;
+    box-sizing: inherit;
+    border: 1px solid #E5EBF4;
+    // border-radius: 5px;
+    background-color: $--color-white;
+    &:hover {
+      background-color: $--color-primary;
+      color: $--color-white;
+    }
+  }
+  // .btn-prev {
+  //   margin-right: 5px;
+
+  // }
+  // .btn-next {
+  //   margin-left: 5px;
+  // }
+  @include e(index-wrapper) {
+    margin: 0 10px;
+    overflow: hidden;
+    text-align: center;
+  }
+  @include e(jump) {
+    height: 100%;
+    margin: 0 10px 0 20px;
+    .btn-confirm {
+      background-color: $--color-primary;
+      color: $--color-white;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+  }
+  @include e(editor) {
+    width: 80px;
+  }
+  @include e(index) {
+    display: inline-block;
+    .number {
+      display: inline-block;
+      width: 38px;
+      cursor:pointer;
+      border-left: 1px solid #E5EBF4;
+      &.active {
+        color: $--color-white;
+        background-color: $--color-primary;
+      }
+    }
+    .number:last-child {
+      border-right: 1px solid #E5EBF4;
+    }
+  }
+  @include e(sizes) {
+    float: right;
+    // margin-right:20px;
+    margin-right: 70px;
+    width: 86px;
+  }
+  @include e(size) {
+    margin-right: 10px;
+    &.active {
+      background-color: $--color-primary;
+      color: $--color-white;
+    }
+  }
+  @include e(total) {
+    color: #2F3748;
+  }
+}

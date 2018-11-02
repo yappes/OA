@@ -1,0 +1,28 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+@include b(avatar) {
+  height: 166px;
+  padding-top: 20px;
+  box-sizing: border-box;
+  background-color: $--color-white;
+  @include e(img) {
+    width: 120px;
+    height: 120px;
+    margin: 0 64px 0 44px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  @include e(right) {
+    display: inline-block;
+    vertical-align: middle;
+    .tip {
+      color: $--font-color-gray;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+  }
+  .pui-icon-jiantou-copy {
+    font-weight: bold;
+  }
+}

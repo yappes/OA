@@ -1,0 +1,32 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+  $--body-bdColor: #E7E7E7;
+  $--border-padding: 4%;
+  $--detail-color: #a39c9c;
+  .pui-dashboard-detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &>.pui-dashboard-detail__outer {
+      width: 49%;
+      background: $--inner-body-bgcolor;
+      border: 1px solid $--body-bdColor;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      &>.pui-dashboard-detail__top {
+        height: 56px;
+        line-height: 56px;
+        box-shadow: 0px 1px 0px 0px #E6E6E6;
+        & .pui-dashboard-detail__class {
+          padding-left: $--border-padding;
+          color:  $--nav-bgcolor;
+          font-size: $--font-size-large;
+        }
+        & .pui-dashboard-detail__btn {
+          float: right;
+          margin: 13px $--border-padding;
+        }
+      }
+    }
+  }

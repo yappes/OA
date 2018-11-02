@@ -1,0 +1,50 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+$--main-right-bgColor:#F7F7F7;
+$--main-right-header-menu:#FB9B00;
+
+@include b(main-right) {
+  width: 100%;
+  // background: #F6F8FA;
+  background: $--body-bgcolor;
+  @include e(aside){
+    // width:20%;
+    float:left;
+    display:inline-block;
+    margin: 13px  0 13px 20px;
+    padding: 13px 20px;
+    box-sizing: border-box;
+    background: $--inner-body-bgcolor;
+  }
+  @include e(header) {
+    width: 100%;
+    display: block;
+    background-color: $--main-right-bgColor;
+    padding: 0 20px;
+    box-sizing: border-box;
+    line-height: 48px;
+    border-bottom: 1px solid #e2e3e4;
+    @include e(header-title) {
+      font-size: $--font-size-large;
+      vertical-align: middle;
+    }
+    @include e(header-menu) {
+      background: $--main-right-header-menu;
+      border-radius: 3px;
+      padding: 0 3px;
+      vertical-align: middle;
+      color: $--color-white;
+      font-size: $--font-size-smallest;
+    }
+    @include e(header-right) {
+      float: right;
+      height: 100%;
+      padding: 13px 0;
+      box-sizing: border-box;
+    }
+  }
+  // @include e(right-content) {
+  //   padding: 14px 20px;
+  // }
+}

@@ -1,0 +1,12 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+@include b(main) {
+  flex: 1;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: $--main-padding;
+}
+
+
+ 

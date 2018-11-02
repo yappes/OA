@@ -1,0 +1,100 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+.pui-list-grid__set{
+  & .aui-dialog__header{
+    box-sizing: border-box;
+    background: #E0E5ED;
+    box-shadow: 0px 1px 0px 0px #C0CADA; 
+    &>.aui-dialog__title{
+      font-family: STHeitiSC-Medium;
+      font-size: $--font-size-middle;
+      color: #31394A;
+    }
+  }
+  & .aui-dialog__body{
+    padding:0;
+    overflow-x: auto;
+    & .pui-list-grid__body{
+      // min-width:758px;
+      min-width:740px;
+      box-sizing: border-box;
+      background:#FFFFFF;
+      z-index: 1000;
+      max-height:300px;
+      overflow-y:scroll;
+      padding:30px 20px;
+      & .pui-list-grid__setup-oper,.pui-list-grid__setdown-oper{
+        display: inline-block;
+        width: 175px;
+        // width:121px;
+        height: 32px;
+        line-height: 32px;
+        background: #FFFFFF;
+        border: 1px solid #D8D8D8;
+        box-sizing: border-box;
+        margin: 5px;
+        font-family: STHeitiSC-Medium;
+        font-size:$--font-size-base;
+        color: #31394A;
+        padding-left: 10px;
+        position: relative;
+
+      }
+      & .aui-icon-close,.aui-icon-plus{
+        width: 33px;
+        height: 32px;
+        line-height:32px;
+        border: 1px solid $--color-primary;
+        text-align: center;
+        color: $--color-primary;
+        box-sizing: border-box;
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        cursor: pointer;
+      }
+      & .pui-list-grid__setup{
+        padding-bottom: 25px;
+        //margin-right: 45px;
+        border-bottom: 2px dashed #D8D8D8;
+        &>.pui-list-grid__setup-oper{
+          border-color: $--color-primary;
+        }
+      }
+      & .pui-list-grid__setdown{
+        padding-top:15px;
+        &>.pui-list-grid__setdown-oper{
+          &>.aui-icon-plus{
+            display: none;
+          }
+          &:hover{
+            border-color:$--color-primary;
+            .aui-icon-plus{
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  & .dialog-footer {
+    display: block;
+    padding-top: 20px;
+  }
+  // & .aui-dialog__footer{
+  //   box-sizing: border-box;
+  //   background:#FFFFFF;
+  //  // width:820px;
+  //   z-index: 1000;
+  //   text-align: center;
+  //   box-shadow: 0px -1px 0px 0px #C0CADA;
+  //   padding: 13px 0;
+  //   &>.dialog-footer{
+  //     text-align: center;
+  //   }
+  //   & .pui-btn{
+  //     margin-right: 20px;
+  //   }
+  // }   
+}

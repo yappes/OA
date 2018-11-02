@@ -1,0 +1,135 @@
+<div class="modal" ng-controller="KisBpmAssignmentPopupCtrl">
+  <div class="modal-dialog modal-wide">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">&times;</button>
+        <h2 translate>PROPERTY.ASSIGNMENT.TITLE</h2>
+      </div>
+      <div class="modal-body">
+        <div class="row row-no-gutter">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="assigneeField" class="col-sm-2 control-label">{{'PROPERTY.ASSIGNMENT.ASSIGNEE' | translate}}</label>
+              <div class="col-sm-10">
+                <div class="col-sm-11" style="padding-left: 0px;" ng-include="'assignment-user-select.html'" ng-init="assigneeSelectUser = syncAssigneeUser">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="userField">{{'PROPERTY.ASSIGNMENT.CANDIDATE_USERS' | translate}}</label>
+              <div class="col-sm-10">
+                <div>
+                  <table class="table table-striped">
+                    <tbody>
+                      <tr ng-repeat="candidateUser in assignment.candidateUsers">
+                        <td class="col-sm-11" style="padding-left: 0px;">
+                          <div ng-include="'assignment-user-select.html'" ng-init="assigneeSelectUser = proxyValue(candidateUser)">
+                          </div>
+                        </td>
+                        <td class="col-sm-1">
+                          <a class="btn btn-danger btn-xs" ng-if="$index > 0" ng-click="removeCandidateUserValue(candidateUser)">
+                            <i class="glyphicon glyphicon-minus clickable-property"></i>
+                          </a>
+                          <a class="btn btn-success btn-xs" ng-if="$index == (assignment.candidateUsers.length - 1)" ng-click="addCandidateUserValue()">
+                            <i class="glyphicon glyphicon-plus clickable-property"></i>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="groupField">{{'PROPERTY.ASSIGNMENT.CANDIDATE_GROUPS' | translate}}</label>
+              <div class="col-sm-10">
+                <table class="table table-striped">
+                  <tbody>
+                    <tr ng-repeat="candidateGroup in assignment.candidateGroups">
+                      <td class="col-sm-11" ng-controller="KisBpmAssignmentCandidateGroupCtrl">
+                          <select data-toggle="candidateGroup"></select>
+                      </td>
+                      <td class="col-sm-1">
+                          <a class="btn btn-danger btn-xs" ng-if="$index > 0" ng-click="removeCandidateGroupValue(candidateGroup)">
+                              <i class="glyphicon glyphicon-minus clickable-property"></i>
+                            </a>
+                            <a class="btn btn-success btn-xs" ng-if="$index == (assignment.candidateGroups.length - 1)" ng-click="addCandidateGroupValue()">
+                              <i class="glyphicon glyphicon-plus clickable-property"></i>
+                            </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button ng-click="close()" class="btn btn-primary" translate>ACTION.CANCEL</button>
+        <button ng-click="save()" class="btn btn-primary" translate>ACTION.SAVE</button>
+      </div>
+    </div>
+  </div>
+
+  <script id="assignment-user-select.html" type="text/ng-template">
+    <div ng-controller="KisBpmAssignmentUserCtrl">
+      <div class="col-sm-5" style="padding-left: 0px;">
+        <select class="form-control" data-toggle="chosen">
+          <option></option>
+          <option ng-repeat="(key, value) in assigneeUserOptions" value="{{key}}">{{value}}</option>
+        </select>
+      </div>
+      <div class="input-group input-group-sm col-sm-7" ng-hide="assigneeSelectUser.type !== 'assigneeFieldSelectUser'" style="padding-left: 0px;">
+        <input type="text" ng-model="assigneeSelectUser.showValue" ng-hide="$index == (assignment.candidateUsers.length - 1)" class="form-control" placeholder="请选择用户" />
+        <input type="text" ng-model="assigneeSelectUser.showValue" ng-hide="$index !== (assignment.candidateUsers.length - 1)" readonly class="form-control" placeholder="请选择用户" />
+        <span class="input-group-addon" ng-click="showUserPopup()">
+          <i class="glyphicon glyphicon-user"></i>
+        </span>
+      </div>
+      <div class="col-sm-7" ng-show="isGroup(assigneeSelectUser.type)" style="padding: 0px;">
+        <div ng-show="assigneeSelectUser.type === 'designateOrg'" class="col-sm-6" style="padding-left: 0px;">
+          <div class="input-group">
+            <input type="text" class="form-control" ng-model="assigneeSelectUser.orgShowVal" placeholder="请选择部门" readonly>
+            <div class="input-group-addon" ng-click="showDeptPopup()" style="cursor:pointer">
+              <i class="glyphicon glyphicon-indent-left"></i>
+            </div>
+          </div>
+        </div>
+        <div ng-show="assigneeSelectUser.type === 'designateGroup'" class="col-sm-6" style="padding-left: 0px;">
+          <select data-toggle="designateGroup"></select>
+        </div>
+        <div ng-class="groupClass(assigneeSelectUser)" style="padding: 0px;">
+          <select data-toggle="group"></select>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script id="assignment-dept-select.html" type="text/ng-template">
+    <div class="modal" ng-controller="KisBpmAssignmentDeptSelectPopupCtrl">
+      <div class="modal-dialog modal-wide" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">&times;</button>
+            <h2>部门选择</h2>
+          </div>
+          <div class="modal-body">
+            <div class="row row-no-gutter" style="
+                    background: whitesmoke;
+                    border: 1px solid lightgray;
+                    border-radius: 5px;
+                    height: 450px;
+                    max-height: 450px;
+                    overflow-y: auto;">
+              <abn-tree tree-data="treeData" tree-control="$treeControl" expand-level="2" on-select="selectOrgHandler(branch)"></abn-tree>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button ng-click="close()" class="btn btn-primary" translate>ACTION.CANCEL</button>
+            <button ng-click="save()" class="btn btn-primary" translate>ACTION.SAVE</button>
+          </div>
+        </div>
+      </div>
+  </script>
+  </div>

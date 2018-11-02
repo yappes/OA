@@ -1,0 +1,67 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+.pui-list-grid__hquery{
+  & .aui-dialog__header{
+   // width:820px;
+    box-sizing: border-box;
+    background: #E0E5ED;
+    box-shadow: 0px 1px 0px 0px #C0CADA; 
+    &>.aui-dialog__title{
+      font-family: STHeitiSC-Medium;
+      font-size: $--font-size-middle;
+      color: #31394A;
+    }
+  }
+  & .aui-dialog__body{
+    padding:0;
+    overflow-x: visible;
+    & .pui-list-grid__hquery-body{
+      // overflow-x: auto;
+      box-sizing: border-box;
+      background:#FFFFFF;
+      padding: 30px 0;
+      & .pui-list-grid {
+        padding: 0 20px;
+        width: auto;
+      }
+      & .pui-list-grid__user{
+        height: 36px;
+        margin-bottom: 20px;
+        line-height: 36px;
+        &>.aui-icon-plus{
+          border: 1px solid #E5EBF4;
+          border-radius: 50%;
+          padding: 5px;
+          color: $--font-color-gray;
+          //float: right;
+         // margin: 5px 100px 0 0;
+          position: relative;
+        }
+        &>.pui-list-grid__fuzzy-search1{
+          width: 30%;
+          margin-left: 56%;
+        }
+      }
+    }
+  }
+ 
+  & .aui-dialog__footer{
+    padding-top: 0;
+  }
+}
+.data-selection {
+  border: 1px solid black;
+  cursor: pointer;
+}
+.aui-close__icon,
+.aui-search__icon{
+  cursor: pointer;
+  margin-right: 5px;
+  &:hover{
+    color:grey;
+  }
+}
+.aui-input__inner{
+  cursor:pointer;
+}

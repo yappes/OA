@@ -1,0 +1,66 @@
+/* Font
+-------------------------- */
+
+$--font-path: '//at.alicdn.com/t/' !default;
+$--font-size-smallest:12px;
+$--font-size-base: 14px !default;
+$--font-size-small: 13px !default;
+$--font-size-middle: 16px !default;
+$--font-size-large: 18px !default;
+$--font-size-largest: 24px !default;
+$--font-color-normal:#333333;
+$--font-color-error:#FF0000;
+$--font-color-gray:#A3B3CE;
+$--font-weight-primary: 500 !default;
+// $--font-line-height-primary: 24px !default;
+
+
+/* nav
+ ------------------------ */
+
+$--menu-z-index:4000;
+$--nav-top-height:48px !default;
+$--nav-bgcolor: #2f3748 !default;
+$--nav-quick-menu-color:#fff !default;
+$--nav-common-menu-bgcolor:#394457 !default;
+$--nav-common-menu-bgcolor-ishover:rgba(226, 229, 236, 97) !default;
+// $--nav-common-menu-bgcolor-ishover:#e2e5ec61 !default;
+$--body-bgcolor: #eef1f5 !default;
+$--inner-body-bgcolor: #fff !default;
+$--hover-bgColor: #e5f9f7 !default;
+$--menu-item-bgcolor:white;
+
+
+
+
+/* color
+------------------------ */
+
+$--color-white:white;
+
+/*
+pui主题色
+ */
+
+$--color-primary:#26B7AE;
+
+/*layout topBar*/
+$--layout-topBar-height:50px;
+
+/*breadcrumb
+------------------------ */
+
+$--breadcrumb-height:50px;
+$--breadcrumb-bgcolor:$--color-white;
+/*main
+------------------------ */
+$--main-padding:0px;
+/*header
+------------------------ */
+$--header-padding:0px;
+
+
+
+/*dashboard
+------------------------ */
+$--dashboard-main-top-height: 56px;

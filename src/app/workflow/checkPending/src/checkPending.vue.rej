@@ -1,0 +1,10 @@
+diff a/src/app/workflow/checkPending/src/checkPending.vue b/src/app/workflow/checkPending/src/checkPending.vue	(rejected hunks)
+@@ -29,7 +29,7 @@
+         </aui-select>
+       </div>
+       <pui-btn :heightStr="heightStr" :widthStr="widthStr" type="primary" @click='onsearch'>查询</pui-btn> 
+-      <pui-btn :heightStr="heightStr" :widthStr="widthStr" :plain = "true">重置</pui-btn>
++      <pui-btn :heightStr="heightStr" :widthStr="widthStr" :plain = "true" @click="reset">重置</pui-btn>
+       <pui-btn :heightStr="heightStr" :widthStr="widthStr" type="primary" v-if = "isShow == true">展开</pui-btn>  
+       <pui-btn :heightStr="heightStr" :widthStr="widthStr" type="primary" v-else>闭合</pui-btn> 
+     </div>

@@ -1,0 +1,32 @@
+ @import "~theme/common/var";
+.pui-message-detail{
+  margin-left:20px;
+  &>.pui-message-detail__group{
+    margin-top:23px;
+    width:1160px;
+    height:765px;
+    border: 1px solid #E5EBF4;
+    &>.pui-message-detail__up{
+      text-align:center;
+      border-bottom:1px solid #E5EBF4;
+      &>.pui-message-detail__title{
+        font-size: 18px;
+        color:$--nav-bgcolor;
+      }
+      &>.pui-message-detail__time{
+        font-size: 14px;
+        color:$--nav-bgcolor;
+        letter-spacing: 0px;
+      }
+    }
+    &>.pui-message-detail__down{
+      padding:27px 35px 0 41px;
+      &>.pui-message-detail__content{
+        font-family: STHeitiSC-Light;
+        font-size: 18px;
+        color:$--nav-bgcolor;
+        line-height: 28px;
+      }
+    }
+  }
+}

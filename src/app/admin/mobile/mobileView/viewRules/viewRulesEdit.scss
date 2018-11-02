@@ -1,0 +1,31 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+
+@include b(view-rule-edit) {
+  .inline-block-item {
+    display: inline-block;
+    width: 48%;
+  }
+  .condition-form-item {
+    .inline-block-item {
+      display: inline-block;
+      width: 30%;
+    }
+    .condition-list {
+      position: relative;
+    }
+    .condition-btns-group {
+      position: absolute;
+      right: 5px;
+      top: 0;
+      .condition-btns {
+        cursor: pointer;
+        font-size: 26px;
+      }
+      span + span {
+        margin-left: 5px;
+      }
+    }
+  }
+}

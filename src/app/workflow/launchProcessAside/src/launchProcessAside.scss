@@ -1,0 +1,22 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+@import '~theme/icon';
+
+.pui-launch-process-aside{
+  // margin:10px 0 0 10px;
+  margin-left: 10px;
+  overflow-x: auto;
+  background:$--inner-body-bgcolor;
+  // min-height:515px;
+  padding-top: 27px;
+  box-sizing: border-box;
+  & .aui-tree-node__content {
+    &:hover {
+      background-color: $--hover-bgColor;
+    }
+  }
+  & .aui-tree-node:focus > .aui-tree-node__content {
+    background-color: $--hover-bgColor;
+  }
+}

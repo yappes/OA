@@ -1,0 +1,297 @@
+@import '~theme/common/var';
+@import '~theme/icon';
+@import "~theme/mixins/utils";
+
+[class*=" pui-icon-"],
+[class^="pui-icon-"] {
+  &:after {
+    content: "";
+    height: 100%;
+    width: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+.router-link-active {
+    background: $--nav-quick-menu-color;
+    border-right-color:$--nav-quick-menu-color;
+    color:  $--font-color-normal !important;
+    // z-index: 2004;
+  & .common-menu-item  {
+    background: $--nav-quick-menu-color;
+    border-right-color:$--nav-quick-menu-color !important;
+    color:  $--font-color-normal !important;
+    z-index: 10;
+  }
+  & .pui-icon-shezhi {
+    color:  $--font-color-normal !important;
+  }
+}
+.pui-icon-xiaoxi {
+  font-size: 22px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: $--nav-top-height;
+  height: $--nav-top-height;
+  text-align: center;
+  @extend .right-border;
+  &:hover {
+    //background-color: $--nav-common-menu-bgcolor-ishover;
+    background-color:$--nav-quick-menu-color;
+    color:black;
+    // z-index: 2004;
+    
+  }
+  &:before {
+    line-height: $--nav-top-height;
+  }
+}
+
+.submenu-shadow {
+  box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.19);
+}
+
+.submenu-icon {
+  margin-right: 5px;  
+}
+
+.pui-nav-top {
+  @extend .nav-bar-theme;
+  min-width: 1200px;
+  // max-width: 1440px;
+  width: 100%;
+  height: $--nav-top-height;
+  box-sizing: border-box;
+  & .pui-business-export-dialog {
+    & .custom-quick-menu-footer{
+      display:block;
+      text-align: right;
+    }
+  }
+}
+
+.common-menu {
+  height: 100%;
+  float: left;
+  padding-left: 30px;
+  background-color: $--nav-common-menu-bgcolor;
+  vertical-align: middle;
+  .router-link {
+    margin-left: -4px;
+    display: inline-block;
+  }
+  .common-menu__item {
+    @extend .right-border;
+    box-sizing: border-box;
+    height: 100%;
+    display: block;
+    float: left;
+    :hover {
+      border-right-color:$--nav-quick-menu-color;
+    }
+  }
+  .right-border {
+    border-right: 1px solid #444F65;
+  }
+  .common-menu-item {
+  //  @include utils-pipe(#444f65, 19px);
+    color:white;
+    position: relative;
+    width: $--nav-top-height;
+    height: $--nav-top-height;
+    text-align: center;
+    @extend .right-border;
+    box-sizing: border-box;
+    &:hover {
+      //background-color: $--nav-common-menu-bgcolor-ishover;
+      background-color:$--nav-quick-menu-color;
+      border-right: 1px solid $--nav-quick-menu-color;
+      color:black;
+      z-index: 4000;
+    }
+    &:before {
+      line-height: $--nav-top-height;
+    }
+  }
+}
+
+.nav-bar-theme {
+  background-color: $--nav-bgcolor;
+  color: $--nav-quick-menu-color;
+}
+
+.logo {
+  display: inline-block;
+  margin-right: 20px;
+  background-position: center center;
+  width: 130px;
+  height:100%;
+  background-size: cover;
+  // background-image: url("/static/aos-logo.png");
+}
+
+ul.quick-menu {
+  font-size: $--font-size-base;
+  line-height: $--nav-top-height;
+  height: $--nav-top-height;
+  float: left;
+  .qm-box {
+    display: block;
+    float: left;
+    padding: 0 14px;
+    line-height: inherit;
+    height: 100%;
+    cursor: pointer;
+    &.selected {
+      background-color: #00A79D;
+    }
+  }
+  li.menu-item {
+    @include utils-pipe(#444f65, 19px);
+    position: relative;
+    display: inline-block;
+    line-height: inherit;
+    height: 100%;
+    &:hover {
+      background-color: $--menu-item-bgcolor;
+      color: $--font-color-normal;
+      .submenu {
+        display: block;
+      }
+    }
+    ul.submenu {
+      display: none;
+      position: absolute;
+      z-index: $--menu-z-index;
+      top: $--nav-top-height;
+      background-color: $--menu-item-bgcolor;
+      min-width: 100%;
+      width: auto;
+      color: $--font-color-normal;
+      @extend .submenu-shadow;
+      li {
+        &>* {
+          vertical-align: middle;
+        }
+        line-height: 35px;
+        height: 35px;
+        font-size: $--font-size-smallest;
+        padding: 0 10px;
+        white-space: nowrap;
+        &:hover {
+          cursor: pointer;
+          // background-color: #F5F5F5;
+          background: $--hover-bgColor;
+        }
+      }
+      a {
+        color: #333333;
+      }
+    }
+  }
+}
+
+
+ul.nav-bd-r {
+  float: right;
+  height: 100%;
+  line-height: $--nav-top-height;
+  font-size: $--font-size-base;
+  li.menu-item {
+    @include utils-pipe(#444f65, 19px);
+    position: relative;
+    display: inline-block;
+  
+    &:not(:last-child) {
+      margin-right: -4px;
+    }
+    .box {
+      padding: 0 14px;
+    }
+    .box-message {
+      position: relative;
+    }
+    .message {
+      position: absolute;
+      width: 8px;
+      height :8px;
+      border-radius: 50%;
+      background: #f56c6c;
+      left: 29px;
+      top: 10px;
+      // z-index: 2004;
+    }
+    &:nth-child(2) {
+      // width: $--nav-top-height;
+      // height: $--nav-top-height;
+      // margin-top:-1px;
+      [class*=" pui-icon-"],
+      [class^="pui-icon-"] {
+        color: $--nav-quick-menu-color;
+      }
+      .router-link {
+        display: inline-block;
+        width: $--nav-top-height;
+        height: $--nav-top-height + 2;
+        text-align: center;
+        position: relative;
+        top:-2px;
+        &:hover {
+          background-color: $--menu-item-bgcolor;
+          color: $--font-color-normal;
+          & .pui-icon-shezhi {
+            color: $--font-color-normal !important;
+          }
+      }
+      .box {
+        display: inline-block;
+      }
+      
+      }
+    }
+    
+
+    img.head {
+      display: inline-block;
+      width: 25px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+    .user-name {
+      display: inline-block;
+      height: 100%;
+    }
+    &.personal:hover .submenu {
+      display: block;
+    }
+    ul.submenu {
+      display: none;
+      position: absolute;
+      z-index: $--menu-z-index;
+      top: $--nav-top-height - 1;
+      background-color: $--menu-item-bgcolor;
+      min-width: 100%;
+      width: auto;
+      color: $--font-color-normal;
+      @extend .submenu-shadow;
+
+      li {
+        &>* {
+          vertical-align: middle;
+        }
+        line-height: 35px;
+        height: 35px;
+        font-size: $--font-size-smallest;
+        padding: 0 10px;
+        white-space: nowrap;
+        cursor: pointer;
+        &:hover {
+          // background-color: #F5F5F5;
+          background: $--hover-bgColor;
+        }
+      }
+    }
+  }
+}

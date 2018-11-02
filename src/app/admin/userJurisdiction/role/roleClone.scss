@@ -1,0 +1,10 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+
+.pui-role-clone {
+  & .pui-role-clone__form {
+    padding: 0px 9% 0px 3%;
+    min-width: 300px;
+  }
+}

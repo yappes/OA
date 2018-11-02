@@ -1,0 +1,26 @@
+@import "~theme/mixins/mixins";
+@import "~theme/mixins/utils";
+@import "~theme/common/var";
+$--listgridOper-color: #9BADCA; 
+
+@include b(list-grid) {
+	@include e(operations-wrapper) {
+		float: left;
+		@include e(oper) {
+			display: inline-block;
+			line-height: 34px;
+			// background-color: #26B7AE;
+			margin-right: 10px;
+			// border-radius: 5px;
+			// color: $--color-white;
+			// color: $--listgridOper-color; 
+			color:$--color-primary;
+			padding: 0 15px !important;
+			font-size: $--font-size-base;
+			&:hover {
+				background-color: $--color-primary;
+				color: $--color-white;
+			}
+		}
+	}
+}
